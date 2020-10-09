@@ -6,8 +6,8 @@ System creates a boundry box around the region specified in request and gets dis
 
 # Sequence is as follow:
 
-1- User registers itself using Post: /nasa-eonet/register
-2- User authenticates itself using and uses JWT token returned by this api using Post: /nasa-eonet/authenticate
-3- User can get information of available disaster categories using Get: /nasa-eonet/getcategories
-4- User can get information of available disaster sources list using Get: /nasa-eonet/getsources
-5- User can get information of disasters in boundry box around region specified by user using Post: /nasa-eonet/disasterInquiry
+- User registers itself using Post: /nasa-eonet/register
+- User authenticates itself using and uses JWT token returned by this api using Post: /nasa-eonet/authenticate
+- User can get information of available disaster categories using Get: /nasa-eonet/getcategories
+- User can get information of available disaster sources list using Get: /nasa-eonet/getsources
+- User can get information of disasters in boundry box around region specified by user using Post: /nasa-eonet/disasterInquiry
