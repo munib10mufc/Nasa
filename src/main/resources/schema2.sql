@@ -3,6 +3,8 @@
 --create table sources(
 --id serial,
 --source_id varchar(30) not null,
+
+
 --title varchar(50),
 --source varchar(100),
 --UNIQUE KEY sources_unique (source_id));
