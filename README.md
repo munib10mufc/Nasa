@@ -10,3 +10,5 @@ Webservice can register user, validate user to get JWT token for further process
 - User can get information of available disaster categories using Get: /nasa-eonet/getcategories
 - User can get information of available disaster sources list using Get: /nasa-eonet/getsources
 - User can get information of disasters in boundry box around region specified by user using Post: /nasa-eonet/disasterInquiry
+
+![alt text](https://github.com/[munib10mufc]/[Nasa]/blob/[main]/Swagger.png?raw=true)
