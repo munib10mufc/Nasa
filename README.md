@@ -1,8 +1,7 @@
 # Nasa
-Nasa Eonet project is self learning restful webservice implemented in Java using Spring boot framework, hibernate ORM, Spring security, 
-JWT tokens and Swagger 2 for api documentation. Webservice can register user, validate user to get JWT token for further processing. 
-This webservice pulls data from NASA servers to identify if any disaster is taking place or it's about to take place. 
-System creates a boundry box around the region specified in request and gets disasters information from NASA servers.
+Nasa Eonet project is self learning restful webservice implemented in Java using Spring boot framework, hibernate ORM, Spring security, JWT tokens and Swagger 2 for API documentation. Application is deployed in docker containers. 
+
+Webservice can register user, validate user to get JWT token for further processing. This webservice pulls data from NASA servers to identify if any disaster is taking place or it's about to take place. System creates a boundary box around the region specified in request and gets disasters information from NASA servers.
 
 # Sequence is as follow:
 
