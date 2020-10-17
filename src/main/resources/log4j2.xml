@@ -5,6 +5,8 @@
         <Property name="LOG_PATTERN">
 			[%p] %d{DATE} [%tid] [%t] --- %c{1} %M - %m%n
         </Property>
+		<Property name="logsLevel">${sys:log_level}</Property>
+		<Property name="logsLevel2">${sys:log_level2}</Property>
     </Properties>
 
     <Appenders>
@@ -13,7 +15,7 @@
         </Console>
 
         <!-- Rolling File Appender -->
-        <RollingFile name="FileAppender" fileName="logs/eonet.log"
+        <RollingFile name="FileAppender" fileName="C:/Users/Waqar/Desktop/eonet munib/Nasa/logs/eonet.log"
                      filePattern="logs/eonet-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
@@ -44,13 +46,13 @@
     </Appenders>
 
     <Loggers>
-        <AsyncLogger name="com.nasa.eonet" level="debug"
+        <AsyncLogger name="com.nasa.eonet" level="${logsLevel}"
                      additivity="false">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="FileAppender" />
         </AsyncLogger>
 
-        <Root level="info">
+        <Root level="${logsLevel2}">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="FileAppender" />
         </Root>

@@ -17,6 +17,6 @@ public class NasaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NasaApplication.class, args);
-		logger.info(logger.isInfoEnabled() ? "server started" : null);
+		logger.warn("server started");
 	}
 }
