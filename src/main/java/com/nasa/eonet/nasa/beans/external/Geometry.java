@@ -15,9 +15,7 @@ public class Geometry implements Serializable {
 	private String magnitudeUnit = null;
 	private String date = null;
 	private String type = null;
-	//private List<Coordinate> coordinates = null;
 	private List<List<List<BigDecimal>>> coordinates = null;
-	//private List<Coordinate> coordinates = null;
 
 	
 	public String getMagnitudeValue() {
