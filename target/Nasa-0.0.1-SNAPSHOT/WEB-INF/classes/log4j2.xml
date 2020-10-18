@@ -15,7 +15,7 @@
         </Console>
 
         <!-- Rolling File Appender -->
-        <RollingFile name="FileAppender" fileName="C:/Users/Waqar/Desktop/eonet munib/Nasa/logs/eonet.log"
+        <RollingFile name="FileAppender" fileName="./logs/eonet.log"
                      filePattern="logs/eonet-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
@@ -46,13 +46,13 @@
     </Appenders>
 
     <Loggers>
-        <AsyncLogger name="com.nasa.eonet" level="${logsLevel}"
+        <AsyncLogger name="com.nasa.eonet" level="DEBUG"
                      additivity="false">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="FileAppender" />
         </AsyncLogger>
 
-        <Root level="${logsLevel2}">
+        <Root level="INFO">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="FileAppender" />
         </Root>
