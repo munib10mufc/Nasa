@@ -64,6 +64,9 @@ public class DisasterInquiryService implements ServiceHandlerInterface {
 			externalDisasterResponse = ExternalRequestHandler.getDisasterInfo(disasterInfoUrl);
 			if (null != externalDisasterResponse) {
 				disasterInquiryResponse = mapResponse(disasterInquiryResponse, externalDisasterResponse);
+			} else {
+				disasterInquiryResponse = Utils.prepareErrorResponse(disasterInquiryResponse,
+						Constants.EXCEPTION_RESPONSE, "Exception occured, please check with admin");
 			}
 		} catch (Exception e) {
 			logger.error("Exception Occured", e);
@@ -73,7 +76,6 @@ public class DisasterInquiryService implements ServiceHandlerInterface {
 		}
 		return disasterInquiryResponse;
 
-		
 	}
 
 	@Override

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nasa.eonet.nasa.beans.external.LocationIqResponse;
 import com.nasa.eonet.nasa.beans.external.NasaCategoriesResponse;
 import com.nasa.eonet.nasa.beans.external.NasaCommonResponse;
@@ -72,20 +74,30 @@ public class ExternalRequestHandler {
 
 	public static NasaDisastersResponse getDisasterInfo(String url) {
 		NasaDisastersResponse disasterResponse = null;
-		logger.debug(logger.isDebugEnabled() ? "Going to call " + url + " to fetch disasters information..." : null);
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate = configureMessageConcertor(restTemplate);
-		disasterResponse = restTemplate.getForObject(url, NasaDisastersResponse.class);
+		try {
+			logger.debug(
+					logger.isDebugEnabled() ? "Going to call " + url + " to fetch disasters information..." : null);
+			RestTemplate restTemplate = new RestTemplate();
+			restTemplate = configureMessageConcertor(restTemplate);
+			disasterResponse = restTemplate.getForObject(url, NasaDisastersResponse.class);
+		} catch (Exception e) {
+			logger.error("Exception Occured", e);
+			logger.debug(logger.isDebugEnabled() ? "returning empty bean..." : null);
+		}
 		return disasterResponse;
 	}
 
 	private static RestTemplate configureMessageConcertor(RestTemplate restTemplate) {
 		List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
 		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+		ObjectMapper mapper = new ObjectMapper();
+		converter.setObjectMapper(mapper);
 		converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
 		messageConverters.add(converter);
 		restTemplate.setMessageConverters(messageConverters);
+		mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 
+		restTemplate.setMessageConverters(Collections.singletonList(converter));
 		return restTemplate;
 	}
 

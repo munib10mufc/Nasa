@@ -2,3 +2,5 @@ docker build -f DockerFile -t nasadockerapp:v1 .
 docker run -p 8080:8080 nasadockerapp:v1
 
 java -Dlogging.config="C:/Users/Waqar/Desktop/eonet munib/Nasa/src/main/resources/log4j2.xml" -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector  -Dlog_level="WARN" -Dlog_level2="WARN" -jar Nasa-0.0.1-SNAPSHOT.war
+
+

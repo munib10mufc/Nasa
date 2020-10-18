@@ -1,6 +1,7 @@
 package com.nasa.eonet.nasa.beans.external;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -14,8 +15,11 @@ public class Geometry implements Serializable {
 	private String magnitudeUnit = null;
 	private String date = null;
 	private String type = null;
-	private List<Double> coordinates = null;
+	//private List<Coordinate> coordinates = null;
+	private List<List<List<BigDecimal>>> coordinates = null;
+	//private List<Coordinate> coordinates = null;
 
+	
 	public String getMagnitudeValue() {
 		return magnitudeValue;
 	}
@@ -48,11 +52,11 @@ public class Geometry implements Serializable {
 		this.type = type;
 	}
 
-	public List<Double> getCoordinates() {
+	public List<List<List<BigDecimal>>> getCoordinates() {
 		return coordinates;
 	}
 
-	public void setCoordinates(List<Double> coordinates) {
+	public void setCoordinates(List<List<List<BigDecimal>>> coordinates) {
 		this.coordinates = coordinates;
 	}
 
